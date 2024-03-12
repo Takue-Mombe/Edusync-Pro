@@ -1,9 +1,7 @@
 package com.Hit200.Lecturer.s.Companion.Models;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +15,9 @@ import lombok.Setter;
 public class Courses {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    @Column
     private String courseId;
     @Column
     private String courseName; @Column

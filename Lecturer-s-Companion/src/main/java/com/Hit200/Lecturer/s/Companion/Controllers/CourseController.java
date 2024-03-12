@@ -13,14 +13,15 @@ public class CourseController {
     private CourseRepo courseRepo;
 
     @PostMapping("/save")
-    public String saveCourse(Courses courses){
+    public String saveCourse(@RequestBody Courses courses){
         courseRepo.save(courses);
         return "saved...";
     }
     @DeleteMapping("/deleteById/{id}")
-    public String deletebyId(Courses courses, @PathVariable String courseId){
-        courseRepo.deleteById(courseId);
+    public String deletebyId(@PathVariable Long id){
+        courseRepo.deleteById(id);
         return "Deleted...";
     }
+
 
 }
