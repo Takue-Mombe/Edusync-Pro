@@ -18,13 +18,11 @@ public class Attendance {
 
     @Id
     public Long id;
-
     @Column
     public String StudentsTaken;
     @Column
     private int qrCodeNumber;
     @Column
-
     private int courseId;
     @Column
     private String lecturerCode;
