@@ -1,6 +1,7 @@
 package com.Hit200.Lecturer.s.Companion.Models;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -17,10 +18,11 @@ public class Courses {
 
     @Id
     private String courseId;
-    private String courseName;
-    private String Lecturer;
-    private String programme;
-    private String department;
+    @Column
+    private String courseName; @Column
+    private String Lecturer; @Column
+    private String programme; @Column
+    private String department; @Column
     private String NumberOfStudents;
 
 }
