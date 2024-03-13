@@ -3,10 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+    </script>
+
+    <script>
+        let globalId;
+
+        setInterval(()=>{
+            globalId = generateRandomString(12)
+            console.log(globalId)
+        },3000)
+        function generateRandomString(length){
+            const alphabet = "ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789"
+            let val = "";
+
+            for (let i = 0; i < length; i++) {
+                val = val+ alphabet[Math.floor(Math.random() * alphabet.length)]
+            }
+            return val;
+
+        }
+        function submit(){
+            const idn = document.getElementById("course-id").value;
+            const lectureName = document.getElementById("lecturer-name").value;
+            const studentsTaken = document.getElementById("students-taken").value;
+            const time = document.getElementById("time").value;
+            const id=generateRandomString(16);
+            document.getElementById("qrcode").innerHTML = ""
+            new QRCode("qrcode", JSON.stringify({idn,lectureName, studentsTaken,id, time}));
+
+        }
+
+    </script>
 </head>
 <body>
 <link rel="stylesheet" href="style.css">
-<form id="qr-code-form">
+<div id="qr-code-form">
+
     <input type="hidden" id="qr-code-id" name="qrCodeId">
     <label for="course-id">Course ID:</label>
     <input type="text" id="course-id" name="courseId" required>
@@ -16,9 +49,8 @@
     <input type="number" id="students-taken" name="studentsTaken" required>
     <label for="time">Time:</label>
     <input type="datetime-local" id="time" name="time" required>
-    <button type="submit">Generate QR Code</button>
-</form>
-<div id="qr-code"></div>
-<script src="demo.js"></script>
+    <button type="button" onclick="submit()">Generate QR Code</button>
+</div>
+<div id="qrcode"></div>
 </body>
 </html>

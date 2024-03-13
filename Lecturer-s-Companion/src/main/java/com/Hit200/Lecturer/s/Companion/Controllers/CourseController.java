@@ -3,7 +3,6 @@ package com.Hit200.Lecturer.s.Companion.Controllers;
 import com.Hit200.Lecturer.s.Companion.Models.Courses;
 import com.Hit200.Lecturer.s.Companion.Repositories.CourseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
