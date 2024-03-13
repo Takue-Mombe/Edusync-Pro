@@ -3,6 +3,8 @@ package com.Hit200.Lecturer.s.Companion.Controllers;
 import com.Hit200.Lecturer.s.Companion.Models.user;
 import com.Hit200.Lecturer.s.Companion.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,12 +22,20 @@ public class UserController {
         return registeredUser;
     }
 
-    @PostMapping("/login") // Change to POST method for login
-    public String loginUser(@RequestBody user user) { // Receive user credentials in request body
-        // Here, implement your login logic using the provided username and password
-        // For example, you can check the credentials against your database
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody user credentials) {
+        // Replace UserCredentials with your actual request body model
+        String username = credentials.getUsername();
+        String password = credentials.getPassword();
 
-        // If login is successful, return appropriate response
-        return "Login successful!";
+        // Basic authentication check (replace with your actual authentication logic)
+        if ("admin".equals(username) && "password".equals(password)) {
+            // Successful login
+            return ResponseEntity.ok().body("{\"message\": \"Login successful\"}");
+        } else {
+            // Unauthorized
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"error\": \"Unauthorized\"}");
+        }
     }
+
 }
