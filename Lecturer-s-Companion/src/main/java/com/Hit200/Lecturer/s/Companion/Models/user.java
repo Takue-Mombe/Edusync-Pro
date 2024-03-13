@@ -1,5 +1,6 @@
 package com.Hit200.Lecturer.s.Companion.Models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -13,19 +14,17 @@ import java.util.Collection;
 
 @Setter
 @Getter
-@Entity
-@Table(name = "users")
+@Entity(name = "userDetails")
 public class user implements UserDetails {
 
 
     @Getter
     @Id
     private String username;
-    @Getter
-    private String password;
+    @Column
     private String firstName;
     private String lastName;
-    private int phoneNumber;
+    private String password;
     private String emailAddress;
 
     public Collection<? extends GrantedAuthority> getAuthorities() {

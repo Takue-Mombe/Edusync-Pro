@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 public class UserController {
 
     @Autowired(required = true)
@@ -19,8 +20,12 @@ public class UserController {
         return registeredUser;
     }
 
-    @GetMapping("/login")
-    public String loginUser() {
+    @PostMapping("/login") // Change to POST method for login
+    public String loginUser(@RequestBody user user) { // Receive user credentials in request body
+        // Here, implement your login logic using the provided username and password
+        // For example, you can check the credentials against your database
+
+        // If login is successful, return appropriate response
         return "Login successful!";
     }
 }
