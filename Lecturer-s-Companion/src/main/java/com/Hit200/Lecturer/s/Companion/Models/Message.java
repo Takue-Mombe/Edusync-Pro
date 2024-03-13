@@ -1,10 +1,14 @@
 package com.Hit200.Lecturer.s.Companion.Models;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter@Setter@NoArgsConstructor@AllArgsConstructor@ToString
+@Entity(name = "message")
 public class Message {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     @Column
     private String senderName;
     @Column
