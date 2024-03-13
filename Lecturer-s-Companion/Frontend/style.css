@@ -1,0 +1,23 @@
+#qr-code-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#qr-code-form label {
+    margin-top: 10px;
+}
+
+#qr-code-form input[type="text"],
+#qr-code-form input[type="number"],
+#qr-code-form input[type="datetime-local"] {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#qr-code {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
