@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin(origins = "http://127.0.0.1:5501")
+@CrossOrigin
 public class UserController {
 
     @Autowired(required = true)
@@ -29,6 +29,7 @@ public class UserController {
         String password = credentials.getPassword();
 
         // Basic authentication check (replace with your actual authentication logic)
+        System.out.println(username.concat(password));
         if ("admin".equals(username) && "password".equals(password)) {
             // Successful login
             return ResponseEntity.ok().body("{\"message\": \"Login successful\"}");
